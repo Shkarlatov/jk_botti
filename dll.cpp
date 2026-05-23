@@ -761,23 +761,20 @@ static void StartFrameManageBotCount(void)
          UTIL_ConsolePrintf("Test UTIL_PickRandomBot(), return value: %d", UTIL_PickRandomBot());
    }
 
-    if (bot_join_after_player)
-    {
-        int human_count = client_count - bot_count;
-        if (human_count == 0)
-        {
-            if (bot_count > 0)
-            {
-                UTIL_ConsolePrintf("No human players, removing all bots.\n");
-                for (int i = 0; i < 32; i++)
-                {
-                    if (bots[i].is_used)
-                        BotKick(bots[i]);
-                }
-            }
-            bot_check_time = gpGlobals->time + 0.5;
-            return;
-        }
+   if (bot_join_after_player)
+   {
+      int human_count = client_count - bot_count;
+      if (human_count == 0)
+      {
+         if (bot_count > 0)
+         {
+            int pick = UTIL_PickRandomBot();
+            if (pick != -1)
+               BotKick(bots[pick]);
+         }
+         bot_check_time = gpGlobals->time + 0.5;
+         return;
+      }
    }
 
    // need more clients

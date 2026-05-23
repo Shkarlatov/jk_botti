@@ -1165,7 +1165,6 @@ static int test_srv_bot_join_after_player_off(void)
    return 0;
 }
 
-
 static int test_srv_show_waypoints_on(void)
 {
    TEST("ProcessCommand: show_waypoints enable");

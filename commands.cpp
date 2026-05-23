@@ -914,7 +914,7 @@ static qboolean ProcessCommand(const int cmdtype, const printfunc_t printfunc, v
    }
    else if (FStrEq(pcmd, "bot_join_after_player"))
    {
-      set_bool_toggle(&bot_join_after_player, arg1, "bot_join_after_player ENABLED\n", "random_color DISABLED\n", printfunc, arg);
+      set_bool_toggle(&bot_join_after_player, arg1, "bot_join_after_player ENABLED\n", "bot_join_after_player DISABLED\n", printfunc, arg);
       return TRUE;
    }
 
